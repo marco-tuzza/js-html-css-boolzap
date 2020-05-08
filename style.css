@@ -102,3 +102,102 @@ header{
     font-size: 12px;
 }
 /* /header */
+/* aside */
+aside {
+    height: 92%;
+    width: 30%;
+}
+
+.search {
+    height: 6%;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input {
+    height: 75%;
+    padding-left: 60px;
+    width: 93%;
+    border-radius: 15px;
+    border: 0px;
+    position: relative;
+}
+
+.search input::placeholder {
+    color: #999999;
+}
+
+.search input:focus {
+    outline: none;
+}
+
+.search i {
+    position: absolute;
+    left: 25px;
+    color: #999999;
+    opacity: 40%;
+}
+
+.chat-list {
+    height: 94%;
+    overflow-y: scroll;
+}
+
+.chat-list-element {
+    background-color: #ffffff;
+    height: 11%;
+    display: flex;
+    align-items: center;
+}
+
+.chat-list-element:hover {
+    cursor: pointer;
+}
+
+.active {
+    background-color: #ebebeb;
+}
+
+.element-image {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.element-image img {
+    height: 70%;
+    border-radius: 50%;
+}
+
+.element-main {
+    width: 80%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 5px;
+}
+
+.element-content {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.element-clock span {
+    font-size: 12px;
+}
+
+.element-message {
+    width: 100%;
+    height: 50%;
+}
+
+.element-message span {
+    font-size: 15px;
+}
