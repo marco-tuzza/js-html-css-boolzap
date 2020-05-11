@@ -7,27 +7,18 @@
 
 body {
     height: 100vh;
-    position: relative;
-}
-
-.body-green {
-    background-color: #009687;
-    height: 15%;
-}
-
-.body-grey {
-    background-color: #dadbd5;
-    height: 85%;
+    background: rgb(0,150,135);
+    background: linear-gradient(180deg, rgba(0,150,135,1) 15%, rgba(218,219,213,1) 15%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
-
-    height: 96%;
-    width: 80%;
-    position: absolute;
-    top: 2%;
-    left: 10%;
+    height: 780px;
+    width: 1400px;
     display: block;
+    box-shadow: 0px 0px 12px -4px black;;
 }
 
 /* header */
@@ -116,6 +107,7 @@ aside {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .search input {
@@ -124,7 +116,6 @@ aside {
     width: 93%;
     border-radius: 15px;
     border: 0px;
-    position: relative;
 }
 
 .search input::placeholder {
@@ -191,7 +182,7 @@ aside {
 
 .chat-list-element {
     background-color: #ffffff;
-    height: 11%;
+    height: 12%;
     display: flex;
     align-items: center;
 }
@@ -334,13 +325,27 @@ footer input:focus {
     outline: none;
 }
 
-footer i {
+footer .far {
+    padding: 0px 20px;
+    font-size: 25px;
+    color: #979797
+}
+
+footer .fas {
     padding: 0px 20px;
     font-size: 25px;
     color: #979797;
+    display: none;
+}
+
+footer .active {
+    display: inline-block;
 }
 
 footer i:hover {
     cursor: pointer;
 }
 /* /footer */
+.template {
+    display: none;
+}
