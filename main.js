@@ -1,33 +1,93 @@
-$( "footer > input" ).focusin(function() {
+$( "footer > input" ).focusin(
 
-  $("footer > .fa-paper-plane").addClass("active");
+    function() {
 
-  $("footer > .fa-microphone").removeClass("active");
+        $("footer > .fa-paper-plane").addClass("active");
 
-}
+        $("footer > .fa-microphone").removeClass("active");
+
+    }
 
 );
 
+$( "footer > input" ).focusout(
 
-$(".fa-paper-plane").click(
+    function() {
 
-    function () {
+        var textMessage = $("footer > input").val();
 
-        var textMessage = $("footer > input").val()
+        if (textMessage == false) {
 
-        console.log(textMessage);
+            $("footer > .fa-paper-plane").removeClass("active");
 
-        var messaggio = $("#new-message")
+            $("footer > .fa-microphone").addClass("active");
+        }
 
-        messaggio.text(textMessage)
+    }
 
-        var newMessage = $(".template .row-green").clone()
+);
+
+$( "footer > input" ).keypress(
+
+    function(event) {
+
+        if (event.which == 13) {
+
+            sendMessage();
+
+        };
+
+    }
+);
+
+$(".fa-paper-plane").click(sendMessage);
+
+function sendMessage() {
+
+    var textMessage = $("footer > input").val().trim()
+
+    if (textMessage != "") {
+
+        var color = $(".template .color")
+
+        var message = $(".template .message")
+
+        message.text(textMessage)
+
+        $(color).removeClass("white").addClass("green")
+
+        var newMessage = $(".template > div").clone()
+
+        $(newMessage).addClass("row-green")
 
         $("section").append(newMessage)
 
         $("footer > input").val("")
 
         $("footer > .fas").toggleClass("active");
-}
 
-);
+    };
+
+    setTimeout(reply, 1000);
+
+};
+
+function reply() {
+
+    var textMessage = "Ok"
+
+    var message = $(".template .message")
+
+    message.text(textMessage)
+
+    var color = $(".template .color")
+
+    $(color).removeClass("green").addClass("white")
+
+    var newMessage = $(".template > div").clone()
+
+    $(newMessage).addClass("row-white")
+
+    $("section").append(newMessage)
+
+};
