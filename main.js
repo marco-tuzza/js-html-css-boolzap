@@ -42,6 +42,8 @@ $( "footer > input" ).keypress(
 
 $(".fa-paper-plane").click(sendMessage);
 
+$(".search i").click(findContact)
+
 function sendMessage() {
 
     var textMessage = $("footer > input").val().trim()
@@ -66,9 +68,9 @@ function sendMessage() {
 
         $("footer > .fas").toggleClass("active");
 
-    };
+        setTimeout(reply, 1000);
 
-    setTimeout(reply, 1000);
+    };
 
 };
 
@@ -91,3 +93,36 @@ function reply() {
     $("section").append(newMessage)
 
 };
+
+// Ricerca utenti: ​scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo icontatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo“mar” rimangono solo Marco e Martina)
+
+function findContact() {
+
+    var search = $("aside input").val()
+
+    $(".username").each(
+
+        function() {
+
+            var user = $(this).text()
+
+            if (user == search) {
+
+                var userNumber = $(this).index()
+
+                var userDisplay = $(".chat-list-element").eq(userNumber)
+
+                $(".chat-list-element").hide()
+
+                userDisplay.show()
+
+            } else {
+
+                $(".chat-list-element").show()
+
+            }
+
+        }
+    )
+
+}
