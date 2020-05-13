@@ -7,7 +7,6 @@ $( "footer > input" ).focusin(
         $("footer > .fa-microphone").removeClass("active");
 
     }
-
 );
 
 $( "footer > input" ).focusout(
@@ -22,9 +21,7 @@ $( "footer > input" ).focusout(
 
             $("footer > .fa-microphone").addClass("active");
         }
-
     }
-
 );
 
 $( "footer > input" ).keypress(
@@ -36,13 +33,26 @@ $( "footer > input" ).keypress(
             sendMessage();
 
         };
-
     }
 );
 
 $(".fa-paper-plane").click(sendMessage);
 
 $("aside input").keyup(findContact)
+
+$(".chat-list-element").click(conversation)
+
+$("input").keydown(
+
+    function (prevent) {
+
+        if ($(this).val().length == 0 && prevent.which ==32) {
+
+            prevent.preventDefault();
+
+        }
+    }
+)
 
 function sendMessage() {
 
@@ -62,7 +72,7 @@ function sendMessage() {
 
         $(newMessage).addClass("row-green")
 
-        $("section").append(newMessage)
+        $(".section-active").append(newMessage)
 
         $("footer > input").val("")
 
@@ -71,7 +81,6 @@ function sendMessage() {
         setTimeout(reply, 1000);
 
     };
-
 };
 
 function reply() {
@@ -90,7 +99,7 @@ function reply() {
 
     $(newMessage).addClass("row-white")
 
-    $("section").append(newMessage)
+    $(".section-active").append(newMessage)
 
 };
 
@@ -115,4 +124,32 @@ function findContact() {
             }
         }
     )
+}
+
+function conversation() {
+
+    var listIndex = $(this).index()
+
+    var conversation = $("section").eq(listIndex)
+
+    var name = $(this).find(".username").text()
+
+    var image = $(this).find(".element-image img")
+
+    var imageSrc = $(image).attr("src")
+
+    console.log(image);
+
+    $(".chat-list-element").removeClass("active")
+
+    $(this).addClass("active")
+
+    $(".section-active").removeClass("section-active")
+
+    $(conversation).addClass("section-active")
+
+    $(".contact-name span").text(name)
+
+    $(".contact img").attr("src" , imageSrc)
+
 }

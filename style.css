@@ -40,12 +40,13 @@ header{
 .profile {
     padding: 10px;
     margin-left: 7px;
-    width: 40%
+    width: 20%
 }
 
 .profile img {
     border-radius: 50%;
-    height: 100%
+    height: 100%;
+    width: 70%;
 }
 
 .action-menu {
@@ -261,6 +262,11 @@ section {
     margin-left: 30%;
     padding: 25px;
     overflow-y: scroll;
+    display: none;
+}
+
+.section-active {
+    display: block;
 }
 
 .row-white {
