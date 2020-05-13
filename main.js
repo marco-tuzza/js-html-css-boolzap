@@ -42,9 +42,11 @@ $("aside input").keyup(findContact)
 
 $(".chat-list-element").click(conversation)
 
-$(".fa-chevron-down").click(dropdown)
+$(document).on("click",".fa-chevron-down", dropdown)
 
-$(".dropdown, aside, header, footer").click(hideDropdown)
+$(document).on("click",".dropdown, aside, header, footer", hideDropdown)
+
+$(document).on("click",".dropdown-element-cancel", cancel)
 
 $("input").keydown(
 
@@ -170,5 +172,13 @@ function hideDropdown() {
     var dropdown = $(".dropdown-show")
 
     dropdown.removeClass("dropdown-show")
+
+}
+
+function cancel() {
+
+    var element = $(this).closest(".row")
+
+    element.hide()
 
 }
