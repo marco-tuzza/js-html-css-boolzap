@@ -42,6 +42,10 @@ $("aside input").keyup(findContact)
 
 $(".chat-list-element").click(conversation)
 
+$(".fa-chevron-down").click(dropdown)
+
+$(".dropdown, aside, header, footer").click(hideDropdown)
+
 $("input").keydown(
 
     function (prevent) {
@@ -151,5 +155,20 @@ function conversation() {
     $(".contact-name span").text(name)
 
     $(".contact img").attr("src" , imageSrc)
+
+}
+
+function dropdown() {
+
+    var dropdown = $(this).next()
+
+    dropdown.addClass("dropdown-show")
+}
+
+function hideDropdown() {
+
+    var dropdown = $(".dropdown-show")
+
+    dropdown.removeClass("dropdown-show")
 
 }
