@@ -62,15 +62,23 @@ $("input").keydown(
 
 function sendMessage() {
 
-    var textMessage = $("footer > input").val().trim()
-
     if (textMessage != "") {
 
-        var color = $(".template .color")
+        var textMessage = $("footer > input").val().trim()
 
         var message = $(".template .message")
 
-        message.text(textMessage)
+        $(message).text(textMessage)
+
+        var hour = new Date().getHours()
+
+        var minutes = new Date().getMinutes()
+
+        var clock = $(".template .clock")
+
+        $(clock).text(hour + ":" + minutes)
+
+        var color = $(".template .color")
 
         $(color).removeClass("white").addClass("green")
 
@@ -84,7 +92,13 @@ function sendMessage() {
 
         $("footer > .fas").toggleClass("active");
 
-        setTimeout(reply, 1000);
+        $(".section-active").animate({
+                scrollTop: $('.row:last-child').offset().top
+            }, 0);
+
+        setTimeout(read, 2000)
+
+        setTimeout(reply, 3000);
 
     };
 };
@@ -95,7 +109,7 @@ function reply() {
 
     var message = $(".template .message")
 
-    message.text(textMessage)
+    $(message).text(textMessage)
 
     var color = $(".template .color")
 
@@ -106,6 +120,10 @@ function reply() {
     $(newMessage).addClass("row-white")
 
     $(".section-active").append(newMessage)
+
+    $(".section-active").animate({
+            scrollTop: $('.row:last-child').offset().top
+        }, 0);
 
 };
 
@@ -144,8 +162,6 @@ function conversation() {
 
     var imageSrc = $(image).attr("src")
 
-    console.log(image);
-
     $(".chat-list-element").removeClass("active")
 
     $(this).addClass("active")
@@ -164,7 +180,7 @@ function dropdown() {
 
     var dropdown = $(this).next()
 
-    dropdown.addClass("dropdown-show")
+    dropdown.toggleClass("dropdown-show")
 }
 
 function hideDropdown() {
@@ -180,5 +196,11 @@ function cancel() {
     var element = $(this).closest(".row")
 
     element.hide()
+
+}
+
+function read() {
+
+    $("section .verify").addClass("read")
 
 }

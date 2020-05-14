@@ -277,11 +277,11 @@ section {
     position: relative;
 }
 
-.color:hover i{
+.color:hover .fa-chevron-down{
     display: block;
 }
 
-.color i {
+.color .fa-chevron-down {
     position: absolute;
     right: 10px;
     top: 5px;
@@ -290,14 +290,14 @@ section {
     display: none;
 }
 
-.color i:hover {
+.fa-chevron-down:hover {
     cursor: pointer;
 }
 
 .white {
     background-color: #ffffff;
     padding: 10px;
-    padding-right: 50px;
+    padding-right: 70px;
     margin: 20px;
     border-radius: 10px;
     max-width: 60%;
@@ -317,7 +317,7 @@ section {
 .green {
     background-color: #dcf8c6;
     padding: 10px;
-    padding-right: 50px;
+    padding-right: 90px;
     margin: 20px;
     border-radius: 10px;
     max-width: 60%;
@@ -359,6 +359,37 @@ section {
 
 .dropdown-show {
     display: flex;
+}
+
+.color .clock {
+    font-size: 12px;
+    color: #5f5f5f;
+    opacity: 60%;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
+
+.green .clock {
+    right: 35px;
+}
+
+.verify {
+    font-size: 13px;
+    display: block;
+    color: #5f5f5f;
+    opacity: 60%;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+.read {
+    color: #4fc2f7;
+}
+
+.white .verify {
+    display: none;
 }
 
 /* /section */
