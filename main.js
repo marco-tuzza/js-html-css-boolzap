@@ -48,6 +48,8 @@ $(document).on("click",".dropdown, aside, header, footer", hideDropdown)
 
 $(document).on("click",".dropdown-element-cancel", cancel)
 
+$(".notification").click(notification)
+
 $("input").keydown(
 
     function (prevent) {
@@ -202,5 +204,15 @@ function cancel() {
 function read() {
 
     $("section .verify").addClass("read")
+
+}
+
+function notification() {
+
+    alert("Cliccando su ok attiverai le notifiche desktop")
+
+    $(".notification").hide()
+
+    $(".chat-list").addClass("chat-list-notification")
 
 }

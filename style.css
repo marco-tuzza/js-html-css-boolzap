@@ -24,7 +24,7 @@ main {
 /* header */
 
 header{
-    height: 8%;
+    height: 62px;
     display: flex;
 }
 
@@ -46,11 +46,11 @@ header{
 .profile img {
     border-radius: 50%;
     height: 100%;
-    width: 70%;
+    width: 50px;
 }
 
 .action-menu {
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -77,7 +77,7 @@ header{
 
 .contact {
     height: 100%;
-    width: 30%;
+    width: 145px;
     display: flex;
 }
 
@@ -103,7 +103,7 @@ aside {
 }
 
 .search {
-    height: 6%;
+    height: 44px;
     background-color: #f7f7f7;
     display: flex;
     justify-content: center;
@@ -135,7 +135,7 @@ aside {
 }
 
 .notification {
-    height: 10%;
+    height: 71px;
     background-color: #8ed9fc;
     display: flex;
 }
@@ -181,9 +181,13 @@ aside {
     overflow-y: scroll;
 }
 
+.chat-list-notification {
+    height: calc(100% - 44px);
+}
+
 .chat-list-element {
     background-color: #ffffff;
-    height: 12%;
+    height: 72px;
     display: flex;
     align-items: center;
 }
@@ -211,7 +215,7 @@ aside {
 
 .element-image img {
     height: 70%;
-    width: 50%;
+    width: 55px;
     border-radius: 50%;
 }
 
@@ -395,7 +399,7 @@ section {
 /* /section */
 /* footer */
 footer {
-    height: 8%;
+    height: 62px;
     background-color: #f0f0f0;
     width: 70%;
     float: right;
@@ -440,4 +444,39 @@ footer i:hover {
 /* /footer */
 .template {
     display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .header-left {
+    width: 47%;
+    }
+
+    main {
+    height: 100vh;
+    width: 100vw;
+  }
+
+    section {
+      height: calc(100vh - 62px - 62px);
+  }
+
+    aside {
+      height: calc(100vh - 62px);
+      width: 40%;
+  }
+
+  footer {
+      width: 60%;
+  }
+
+    .chat-list {
+      height: calc(100vh - 44px - 71px - 62px);
+      background-color: #ffffff
+  }
+
+    .chat-list-notification {
+    height: calc(100vh - 44px - 62px);
+  }
+
 }
