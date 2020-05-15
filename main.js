@@ -90,6 +90,8 @@ function sendMessage() {
 
         $(".section-active").append(newMessage)
 
+        $(".chat-list-element.active").prependTo(".chat-list")
+
         $("footer > input").val("")
 
         $("footer > .fas").toggleClass("active");
@@ -99,6 +101,10 @@ function sendMessage() {
             }, 0);
 
         $("div.active").find(".element-message > span").text(textMessage)
+
+        var contactClock = $(".chat-list-element.active").find(".element-clock > span")
+
+        $(contactClock).text(hour + ":" + minutes)
 
         setTimeout(read, 2000)
 
@@ -119,6 +125,14 @@ function reply() {
 
     $(message).text(textMessage)
 
+    var hour = new Date().getHours()
+
+    var minutes = new Date().getMinutes()
+
+    var clock = $(".template .clock")
+
+    $(clock).text(hour + ":" + minutes)
+
     var color = $(".template .color")
 
     $(color).removeClass("green").addClass("white")
@@ -129,11 +143,17 @@ function reply() {
 
     $(".section-active").append(newMessage)
 
+    $(".chat-list-element.active").prependTo(".chat-list")
+
     $("div.active").find(".element-message > span").text("Ok")
 
     $(".section-active").animate({
             scrollTop: $('.row:last-child').offset().top
         }, 0);
+
+    var contactClock = $(".chat-list-element.active").find(".element-clock > span")
+
+    $(contactClock).text(hour + ":" + minutes)
 
 };
 
@@ -219,7 +239,7 @@ function notification() {
 
     alert("Cliccando su ok attiverai le notifiche desktop")
 
-    $(".notification").hide()
+    $(".notification").slideUp()
 
     $(".chat-list").addClass("chat-list-notification")
 
@@ -229,10 +249,16 @@ function statusWrite() {
 
     $(".contact-access > span").text("Sta scrivendo...")
 
+    $(".chat-list-element.active").find(".element-message > span").text("Sta scrivendo...")
+
+    $(".chat-list-element.active").find(".element-message").addClass("status-write")
+
 }
 
 function statusOnline() {
 
     $(".contact-access > span").text("Online")
+
+    $(".chat-list-element.active").find(".element-message").removeClass("status-write")
 
 }

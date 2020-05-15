@@ -252,11 +252,15 @@ aside {
     overflow: hidden;
 }
 
-
 .element-message span {
     font-size: 15px;
     color: #5f5f5f;
     opacity: 50%;
+}
+
+.status-write span{
+    color: #31c56a;
+    font-weight: bold;
 }
 /* /aside */
 /* section */
