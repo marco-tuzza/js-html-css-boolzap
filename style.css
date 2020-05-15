@@ -37,12 +37,6 @@ header{
     justify-content: space-between;
 }
 
-.profile {
-    padding: 10px;
-    margin-left: 7px;
-    width: 20%
-}
-
 .profile img {
     border-radius: 50%;
     height: 100%;
@@ -77,8 +71,14 @@ header{
 
 .contact {
     height: 100%;
-    width: 145px;
+    width: 400px;
     display: flex;
+}
+
+.profile {
+    padding: 10px;
+    margin-left: 7px;
+    width: 80px;
 }
 
 .contact-info {
@@ -247,9 +247,11 @@ aside {
 }
 
 .element-message {
-    width: 100%;
-    height: 50%;
+    width: 85%;
+    height: 30%;
+    overflow: hidden;
 }
+
 
 .element-message span {
     font-size: 15px;

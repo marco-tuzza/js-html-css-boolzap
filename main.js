@@ -98,6 +98,8 @@ function sendMessage() {
                 scrollTop: $('.row:last-child').offset().top
             }, 0);
 
+        $("div.active").find(".element-message > span").text(textMessage)
+
         setTimeout(read, 2000)
 
         setTimeout(reply, 3000);
@@ -122,6 +124,8 @@ function reply() {
     $(newMessage).addClass("row-white")
 
     $(".section-active").append(newMessage)
+
+    $("div.active").find(".element-message > span").text("Ok")
 
     $(".section-active").animate({
             scrollTop: $('.row:last-child').offset().top
