@@ -102,7 +102,11 @@ function sendMessage() {
 
         setTimeout(read, 2000)
 
-        setTimeout(reply, 3000);
+        setTimeout(statusWrite, 2000)
+
+        setTimeout(reply, 4000);
+
+        setTimeout(statusOnline, 4000)
 
     };
 };
@@ -218,5 +222,17 @@ function notification() {
     $(".notification").hide()
 
     $(".chat-list").addClass("chat-list-notification")
+
+}
+
+function statusWrite() {
+
+    $(".contact-access > span").text("Sta scrivendo...")
+
+}
+
+function statusOnline() {
+
+    $(".contact-access > span").text("Online")
 
 }
