@@ -44,7 +44,7 @@ $(".chat-list-element").click(conversation)
 
 $(document).on("click",".fa-chevron-down", dropdown)
 
-$(document).on("click",".dropdown, aside, header, footer", hideDropdown)
+$(document).on("click",".dropdown, header, footer, aside", hideDropdown)
 
 $(document).on("click",".dropdown-element-cancel", cancel)
 
@@ -72,9 +72,11 @@ function sendMessage() {
 
         $(message).text(textMessage)
 
-        var hour = new Date().getHours()
+        var date = new Date()
 
-        var minutes = new Date().getMinutes()
+        var hour = date.getHours()
+
+        var minutes = ("0" + date .getMinutes()).slice(-2)
 
         var clock = $(".template .clock")
 
@@ -125,9 +127,11 @@ function reply() {
 
     $(message).text(textMessage)
 
-    var hour = new Date().getHours()
+    var date = new Date()
 
-    var minutes = new Date().getMinutes()
+    var hour = date.getHours()
+
+    var minutes = ("0" + date .getMinutes()).slice(-2)
 
     var clock = $(".template .clock")
 
