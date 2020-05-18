@@ -9,6 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
         <link rel="shortcut icon" type="image/png" href="https://1.bp.blogspot.com/-1F6HPRzXbKo/WU1o5mYGOHI/AAAAAAAAKUE/70xGtD0pZMsMrO9F4gmkQpdvhTjAZGtBQCPcBGAYYCw/s1600/favicon.png"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     </head>
     <body>
         <main>
@@ -498,10 +499,10 @@
                 <i class="fas fa-paper-plane"></i>
             </footer>
         </main>
-        <div class="template">
-            <div class="row">
-                <div class="color">
-                    <span class="message">Segnaposto</span>
+        <script id="entry-template" type="text/x-handlebars-template">
+            <div class="row {{row-class}}">
+                <div class="color {{class}}">
+                    <span class="message">{{message}}</span>
                     <i class="fas fa-chevron-down"></i>
                     <div class="dropdown">
                         <div class="dropdown-element-info">
@@ -511,11 +512,11 @@
                             <span class="cancel">Elimina messaggio</span>
                         </div>
                     </div>
-                    <span class="clock"></span>
+                    <span class="clock">{{clock}}</span>
                     <i class="fas fa-check-double verify"></i>
                 </div>
             </div>
-        </div>
+        </script>
         <script src="main.js"></script>
     </body>
 </html>

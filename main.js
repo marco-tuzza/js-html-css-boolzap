@@ -1,3 +1,6 @@
+var source = $("#entry-template").html()
+var template = Handlebars.compile(source)
+
 $( "footer > input" ).focusin(
 
     function() {
@@ -68,29 +71,24 @@ function sendMessage() {
 
         var textMessage = $("footer > input").val().trim()
 
-        var message = $(".template .message")
-
-        $(message).text(textMessage)
-
         var date = new Date()
 
         var hour = date.getHours()
 
         var minutes = ("0" + date .getMinutes()).slice(-2)
 
-        var clock = $(".template .clock")
+        var clock = hour + ":" + minutes
 
-        $(clock).text(hour + ":" + minutes)
+        var context = {
+            "message" : textMessage,
+            "clock" : clock,
+            "class" : "green",
+            "row-class": "row-green"
+        }
 
-        var color = $(".template .color")
+        var html = template(context)
 
-        $(color).removeClass("white").addClass("green")
-
-        var newMessage = $(".template > div").clone()
-
-        $(newMessage).addClass("row-green")
-
-        $(".section-active").append(newMessage)
+        $(".section-active").append(html)
 
         $(".chat-list-element.active").prependTo(".chat-list")
 
@@ -101,12 +99,6 @@ function sendMessage() {
         $(".section-active").animate({
                 scrollTop: $('.row:last-child').offset().top
             }, 0);
-
-        $("div.active").find(".element-message > span").text(textMessage)
-
-        var contactClock = $(".chat-list-element.active").find(".element-clock > span")
-
-        $(contactClock).text(hour + ":" + minutes)
 
         setTimeout(read, 2000)
 
@@ -121,31 +113,24 @@ function sendMessage() {
 
 function reply() {
 
-    var textMessage = "Ok"
-
-    var message = $(".template .message")
-
-    $(message).text(textMessage)
-
     var date = new Date()
 
     var hour = date.getHours()
 
     var minutes = ("0" + date .getMinutes()).slice(-2)
 
-    var clock = $(".template .clock")
+    var clock = hour + ":" + minutes
 
-    $(clock).text(hour + ":" + minutes)
+    var context = {
+        "message" : "Ok",
+        "clock" : clock,
+        "class" : "white",
+        "row-class": "row-white"
+    }
 
-    var color = $(".template .color")
+    var html = template(context)
 
-    $(color).removeClass("green").addClass("white")
-
-    var newMessage = $(".template > div").clone()
-
-    $(newMessage).addClass("row-white")
-
-    $(".section-active").append(newMessage)
+    $(".section-active").append(html)
 
     $(".chat-list-element.active").prependTo(".chat-list")
 
@@ -154,11 +139,6 @@ function reply() {
     $(".section-active").animate({
             scrollTop: $('.row:last-child').offset().top
         }, 0);
-
-    var contactClock = $(".chat-list-element.active").find(".element-clock > span")
-
-    $(contactClock).text(hour + ":" + minutes)
-
 };
 
 function findContact() {
