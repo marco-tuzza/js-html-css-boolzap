@@ -100,6 +100,10 @@ function sendMessage() {
                 scrollTop: $('.row:last-child').offset().top
             }, 0);
 
+        $(".chat-list-element.active").find(".element-message > span").text(textMessage)
+
+        $(".section-active").prependTo(".section-container")
+
         setTimeout(read, 2000)
 
         setTimeout(statusWrite, 2000)
@@ -134,11 +138,13 @@ function reply() {
 
     $(".chat-list-element.active").prependTo(".chat-list")
 
-    $("div.active").find(".element-message > span").text("Ok")
-
     $(".section-active").animate({
             scrollTop: $('.row:last-child').offset().top
         }, 0);
+
+    $(".chat-list-element.active").find(".element-message > span").text("Ok")
+
+    $(".section-active").prependTo(".section-container")
 };
 
 function findContact() {
@@ -180,7 +186,7 @@ function conversation() {
 
     $(this).addClass("active")
 
-    $(".section-active").removeClass("section-active")
+    $("section").removeClass("section-active")
 
     $(conversation).addClass("section-active")
 

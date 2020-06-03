@@ -265,8 +265,13 @@ aside {
 }
 /* /aside */
 /* section */
-section {
+
+.section-container {
     height: 84%;
+}
+
+section {
+    height: 100%;
     background-image: url("img/wallpaper.jpg");
     background-repeat: repeat;
     background-size: contain;
@@ -477,10 +482,6 @@ footer .active:hover {
     width: 100vw;
   }
 
-    section {
-      height: calc(100vh - 62px - 62px);
-  }
-
     aside {
       height: calc(100vh - 62px);
       width: 40%;
@@ -497,6 +498,10 @@ footer .active:hover {
 
     .chat-list-notification {
     height: calc(100vh - 44px - 62px);
+  }
+
+  .section-container {
+      height: calc(100vh - 62px - 62px);
   }
 
 }
