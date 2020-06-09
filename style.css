@@ -15,8 +15,8 @@ body {
 }
 
 main {
-    height: 780px;
-    width: 1550px;
+    height: 690px;
+    width: 1395px;
     display: block;
     box-shadow: 0px 0px 12px -4px black;;
 }
@@ -177,7 +177,7 @@ aside {
 }
 
 .chat-list {
-    height: 84%;
+    height:  calc(100% - 71px - 44px);
     overflow-y: scroll;
     background-color: #ffffff;
 }
@@ -411,7 +411,7 @@ section {
 /* /section */
 /* footer */
 footer {
-    height: 62px;
+    height: 55px;
     background-color: #f0f0f0;
     width: 70%;
     float: right;
